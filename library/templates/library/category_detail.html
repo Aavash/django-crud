@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} Category Detail{% endblock %}
+
+
+{% block body %}
+
+
+<h1>Category Details:</h1>
+
+<h2> Category Name - {{ category_detail.category_name  }}</h2>
+<br>
+    <a href="{% url 'library:category-update' category_detail.pk %}"> <button> Update </button> </a>
+
+    <a href="{% url 'library:category-delete' category_detail.pk %}"> <button> Delete </button> </a>
+
+<h3>Available books in this category: </h3>
+
+{% for book in category_detail.book_set.all %}
+    <a href="{% url 'library:book-detail' book.id %}"><h4> {{ book.book_name }}</h4></a>
+{% endfor %}
+<br>
+
+
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %} Book List {% endblock %}
+
+{% block body %}
+    <a href="{% url 'library:book-create' %}"> <button>Create Book </button></a>
+    <h1>All Books:</h1>
+    {% for book in book_list %}
+<br>
+    <a href="{% url 'library:book-detail' book.pk %}"> <h2>{{ book.book_name }}</h2> </a>
+    <h4>Category-  {{ book.category }} </h4>
+    {% endfor %}
+
+{% endblock %}

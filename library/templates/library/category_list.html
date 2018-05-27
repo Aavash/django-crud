@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} Category list {% endblock %}
+
+{% block body %}
+<a href="{% url 'library:category-create' %}"> <button> Create Category </button></a>
+
+
+    {% for category in category_list %}
+    <br>
+    <a href="{% url 'library:category-detail' category.pk %}"> <h1> {{ category.category_name }} </h1> </a>
+    {% endfor %}
+
+
+{% endblock %}

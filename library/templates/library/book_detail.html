@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} Book Detail {% endblock %}
+
+{% block body %}
+
+<h1>Name - {{ book_detail.book_name}}</h1>
+<h3>Category- {{ book_detail.category}}</h3>
+<h3>Author - {{ book_detail.author}}</h3>
+<h3>Book Detail - {{ book_detail.book_detail}}</h3>
+<h3>Borrowed - {{ book_detail.borrowed }}</h3>
+
+<a href= "{% url 'library:book-update' book_detail.pk %}"><button>Update </button></a>
+
+<a href= "{% url 'library:book-delete' book_detail.pk %}"> <button>Delete </button></a>
+
+{% endblock %}
